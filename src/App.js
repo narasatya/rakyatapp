@@ -25,6 +25,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import { NavigationContainer } from '@react-navigation/native';
+import Router from './router';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -32,14 +33,7 @@ import { NavigationContainer } from '@react-navigation/native';
 const App = () => {
   return (
     <NavigationContainer>
-      <StatusBar
-        barStyle={'dark-content'}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={styles.scrollView}>
-        <Text>Hai Rakyat</Text>
-      </ScrollView>
+      <Router />
     </NavigationContainer>
   );
 };
