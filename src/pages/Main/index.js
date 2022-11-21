@@ -1,41 +1,61 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, Image, SafeAreaView, FlatList } from 'react-native';
+import Animated from 'react-native-reanimated';
+const { Value } = Animated;
 // import Icon from 'react-native-vector-icons/FontAwesome5';
 
-const Main = () => {
+export default function Main() {
+  const [data, setData] = useState([])
+
+  const getDataFromApiAsync = async () => {
+    try {
+      let response = await fetch('http://192.168.42.56:3000/dataWargaKabKota')
+      let json = await response.json()
+      setData(json.data)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getDataFromApiAsync()
+  }, [])
+
+  const renderItem = ({ item }) => {
+    return (
+      <View>
+        <Text style={{ color: 'black' }} >{item.kab_kota} : {item.jumlahWarga} Orang</Text>
+      </View>
+    )
+  }
+
   return (
-    <View>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          {/* <Icon name="bars" size={20} color="black" solid /> */}
-          <Image
-            style={{ width: 200, height: 35 }}
-            source={require('../../assets/img/logo-rakyat.png')}
-          />
-          {/* <Icon name="ellipsis-v" size={20} color="black" solid /> */}
-        </View>
+    <SafeAreaView>
+      <View style={styles.header}>
+        <Image
+          style={{ width: 200, height: 35 }}
+          source={require('../../assets/img/logo-rakyat.png')}
+        />
       </View>
-      <View style={styles.container}>
-        <Text style={{ color: 'black' }}>Body</Text>
+      <View>
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id_warga}
+        />
       </View>
-      <View style={styles.container}>
-        <Text style={{ color: 'black' }}>Footer</Text>
-      </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
+  header: {
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: 'white',
+  },
   container: {
     backgroundColor: 'white',
-    padding: 10,
-    marginBottom: 1,
-  },
-  header: {
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
-    alignItems: 'center',
+    height: '100%',
   },
 });
-
-export default Main;
