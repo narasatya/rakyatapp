@@ -2,7 +2,7 @@ import { Text, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-nati
 import React, { Component } from 'react'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
-export default class Surakarta extends Component {
+export default class Karanganyar extends Component {
   state = {
     isLoading: true,
     dataSource: null,
@@ -46,7 +46,25 @@ export default class Surakarta extends Component {
     const dataKec = this.state.data.map((val, key) => {
       return (
         <View key={key}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => {
+            if (val.kec === "Colomadu") {
+              this.props.navigation.navigate('Kec.Colomadu')
+            } else if (val.kec === "Gondangrejo") {
+              this.props.navigation.navigate('Kec.Gondangrejo')
+            } else if (val.kec === "Jaten") {
+              this.props.navigation.navigate('Kec.Jaten')
+            } else if (val.kec === "Jatipuro") {
+              this.props.navigation.navigate('Kec.Jatipuro')
+            } else if (val.kec === "Jatiyoso") {
+              this.props.navigation.navigate('Kec.Jatiyoso')
+            } else if (val.kec === "Karanganyar") {
+              this.props.navigation.navigate('Kec.Karanganyar')
+            } else if (val.kec === "Kebakkramat") {
+              this.props.navigation.navigate('Kec.Kebakkramat')
+            } else if (val.kec === "Matesih") {
+              this.props.navigation.navigate('Kec.Matesih')
+            }
+          }}>
             <View style={{ paddingVertical: 15 }}>
               <Text style={{ color: 'black', textAlign: 'center' }}>{val.kec}</Text>
             </View>

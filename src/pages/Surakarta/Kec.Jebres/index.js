@@ -54,7 +54,17 @@ export default class Jebres extends Component {
     const dataKel = this.state.data.map((val, key) => {
       return (
         <View key={key}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=> {
+            if (val.des_kel === "Jagalan") {
+              this.props.navigation.navigate('Kel.Jagalan')
+            } else if (val.des_kel === "Jebres") {
+              this.props.navigation.navigate('Kel.Jebres')
+            } else if (val.des_kel === "Kepatihan Kulon") {
+              this.props.navigation.navigate('Kel.KepatihanKulon')
+            } else {
+              alert('Sabar yaa, masih dalam tahap pengembangan 😁')
+            }
+          }}>
             <View style={{ paddingVertical: 15 }}>
               <Text style={{ color: 'black', textAlign: 'center' }}>{val.des_kel}</Text>
             </View>
@@ -74,7 +84,10 @@ export default class Jebres extends Component {
     return (
       <View style={{ flex: 1 }}>
         <ScrollView style={styles.body}>
-          <View style={{ marginTop: '30%', marginHorizontal: 30 }}>
+        <View style={{ marginHorizontal: 30 }}>
+          <Text style={{ color: 'black', opacity: .6 }}>Catatan pengembang: Hanya Kelurahan Jagalan, Jebres, dan Kepatihan Kulon saja yang sebagai uji coba.</Text>
+          </View>
+          <View style={{ marginVertical: '20%', marginHorizontal: 30 }}>
             <Table>
               <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text} />
               <Table borderStyle={{ borderWidth: 1 }} style={{ flexDirection: 'row', backgroundColor: '#e5e7eb' }}>

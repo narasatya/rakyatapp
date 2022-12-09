@@ -22,7 +22,9 @@ export default class PasarKliwon extends Component {
     const dataKel = this.state.data.map((val, key) => {
       return (
         <View key={key}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=> {
+            alert('Sabar yaa, masih dalam tahap pengembangan 😁')
+          }}>
             <View style={{ paddingVertical: 15 }}>
               <Text style={{ color: 'black', textAlign: 'center' }}>{val.des_kel}</Text>
             </View>

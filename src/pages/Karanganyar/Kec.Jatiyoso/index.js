@@ -2,7 +2,7 @@ import { Text, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-nati
 import React, { Component } from 'react'
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
-export default class Colomadu extends Component {
+export default class Jatiyoso extends Component {
   state = {
     isLoading: true,
     dataSource: null,
@@ -18,10 +18,8 @@ export default class Colomadu extends Component {
     const dataKel = this.state.data.map((val, key) => {
       return (
         <View key={key}>
-          <TouchableOpacity onPress={() => {
-            if (val.des_kel === "Banyuanyar") {
-              this.props.navigation.navigate('Kel.Banyuanyar')
-            }
+          <TouchableOpacity onPress={()=> {
+            alert('Sabar yaa, masih dalam tahap pengembangan 😁')
           }}>
             <View style={{ paddingVertical: 15 }}>
               <Text style={{ color: 'black', textAlign: 'center' }}>{val.des_kel}</Text>

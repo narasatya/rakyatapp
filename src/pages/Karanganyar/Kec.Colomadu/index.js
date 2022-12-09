@@ -11,43 +11,43 @@ export default class Colomadu extends Component {
       {
         des_kel: "Baturan",
         jumlahWarga: 1
-        },
-        {
+      },
+      {
         des_kel: "Blulukan",
         jumlahWarga: 1
-        },
-        {
+      },
+      {
         des_kel: "Bolon",
         jumlahWarga: 1
-        },
-        {
+      },
+      {
         des_kel: "Gajahan",
         jumlahWarga: 1
-        },
-        {
+      },
+      {
         des_kel: "Gawanan",
         jumlahWarga: 1
-        },
-        {
+      },
+      {
         des_kel: "Klodran",
         jumlahWarga: 1
-        },
-        {
+      },
+      {
         des_kel: "Malangjiwan",
         jumlahWarga: 1
-        },
-        {
+      },
+      {
         des_kel: "Ngasem",
         jumlahWarga: 1
-        },
-        {
+      },
+      {
         des_kel: "Paulan",
         jumlahWarga: 1
-        },
-        {
+      },
+      {
         des_kel: "Tohudan",
         jumlahWarga: 1
-        }
+      }
     ]
   }
   render() {
@@ -55,8 +55,10 @@ export default class Colomadu extends Component {
       return (
         <View key={key}>
           <TouchableOpacity onPress={() => {
-            if (val.des_kel === "Banyuanyar") {
-              this.props.navigation.navigate('Kel.Banyuanyar')
+            if (val.des_kel === "Baturan") {
+              this.props.navigation.navigate('Kel.Baturan')
+            } else {
+              alert('Sabar yaa, masih dalam tahap pengembangan 😁')
             }
           }}>
             <View style={{ paddingVertical: 15 }}>

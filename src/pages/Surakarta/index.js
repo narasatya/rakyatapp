@@ -66,7 +66,10 @@ export default class Surakarta extends Component {
     return (
       <View style={{ flex: 1 }}>
         <ScrollView style={styles.body}>
-          <View style={{ marginTop: '30%', marginHorizontal: 30 }}>
+        <View style={{ marginHorizontal: 30 }}>
+          <Text style={{ color: 'black', opacity: .6 }}>Catatan pengembang: Hanya Kecamatan Banjarsari dan Jebres saja yang sebagai uji coba.</Text>
+          </View>
+          <View style={{ marginVertical: '20%', marginHorizontal: 30 }}>
             <Table>
               <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text} />
               <Table borderStyle={{ borderWidth: 1 }} style={{ flexDirection: 'row', backgroundColor: '#e5e7eb' }}>

@@ -60,7 +60,7 @@ export default class Banyuanyar extends Component {
     return (
       <View style={{ flex: 1 }}>
         <ScrollView style={styles.body} horizontal={true}>
-          <View style={{ marginTop: '30%', marginHorizontal: 30 }}>
+          <View style={{ marginTop: '10%', marginHorizontal: 30 }}>
             <Table style={{ flexDirection: 'column' }}>
               <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text} />
               <Table borderStyle={{ borderWidth: 1 }} style={{ flexDirection: 'row', backgroundColor: '#e5e7eb', width: 500 }}>
